@@ -1,0 +1,84 @@
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
+
+
+group = "com.wind.gradle"
+version = "1.0.0"
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+task sourceJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    // archives javadocJar
+    archives sourceJar
+}
+
+def siteUrl = 'https://github.com/yqyzxd/apkuploader-gradle-plugin-master'
+def gitUrl = 'https://github.com/yqyzxd/apkuploader-gradle-plugin-master.git'
+def issueUrl = 'https://github.com/yqyzxd/apkuploader-gradle-plugin-master/issues'
+
+install {
+    repositories {
+        mavenInstaller {
+            pom.project {
+                packaging 'jar'
+                groupId 'com.wind.gradle'
+
+
+                name 'apkuploader-gradle-plugin'
+                description 'The Android Plugin For Upload Apk.'
+                url siteUrl
+                inceptionYear '2021'
+
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        name 'yqyzxd'
+                        email 'shihaowind@163.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    url siteUrl
+                }
+
+            }
+        }
+    }
+}
+
+Properties properties=new Properties()
+properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
+
+bintray {
+    user = properties.getProperty("bintray.user")
+    key = properties.getProperty("bintray.apikey")
+    configurations = ['archives']
+    pkg {
+        repo = "maven" //bintray 上面 Package名字
+        name = "apkuploader-gradle-plugin" //bintray 上面项目名
+        desc = 'The Android Plugin For Upload Apk.'
+        websiteUrl = siteUrl
+        vcsUrl = gitUrl
+        issueTrackerUrl = issueUrl
+        licenses = ["Apache-2.0"]
+        labels = 'Groovy'
+        publicDownloadNumbers = true
+        publish = true
+    }
+}
+

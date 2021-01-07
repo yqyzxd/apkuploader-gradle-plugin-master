@@ -1,0 +1,3 @@
+include ':apkuploader-gradle-plugin'
+include ':app'
+rootProject.name = "apkuploader-gradle-plugin-master"
