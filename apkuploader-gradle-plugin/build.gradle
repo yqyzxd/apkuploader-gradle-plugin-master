@@ -4,7 +4,7 @@ plugins {
 apply from: '../bintray.gradle'
 dependencies {
     implementation gradleApi()
-    implementation "com.android.tools.build:gradle:4.1.1"
+    implementation "com.android.tools.build:gradle:4.0.0"
 
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -25,7 +25,7 @@ publishing{
             from components.java  //要把源码生成的jar包上传
             groupId 'com.wind'
             artifactId "apkuploader-gradle-plugin"
-            version "1.0.0"
+            version "1.0.1"
         }
     }
 }

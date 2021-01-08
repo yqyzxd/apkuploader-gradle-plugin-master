@@ -3,7 +3,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 
 group = "com.wind.gradle"
-version = "1.0.0"
+version = "1.0.1"
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
     classifier = 'javadoc'

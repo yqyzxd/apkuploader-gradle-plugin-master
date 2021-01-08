@@ -1,16 +1,16 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'com.wind.apkuploader'
+   // id 'com.wind.apkuploader'
 }
 
-apkuploader{
+/*apkuploader{
 
     aid=31
     content="我们更新了！！！"
     env= "Release"
 
-}
+}*/
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
