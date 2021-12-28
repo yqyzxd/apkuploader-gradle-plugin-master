@@ -13,7 +13,7 @@ import retrofit2.http.Part;
  */
 public interface UploadApkApi {
     @Multipart
-    @POST("pack")
+    @POST("app/pack")
     Call<ResponseBody> uploadApk(
                                   @Part MultipartBody.Part file,
                                   @Part("id") RequestBody aid,
