@@ -19,7 +19,7 @@ public class Retrofits {
 
     public static <T> T create(Class<T> serviceClass) {
 
-        String baseUrl = "https://p.xkdmp.com/";
+        String baseUrl = "https://app.marryu520.cn/";
         OkHttpClient.Builder okhttpBuilder = new OkHttpClient().newBuilder();
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
         logging.setLevel(HttpLoggingInterceptor.Level.BODY);
